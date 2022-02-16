@@ -39,6 +39,7 @@ class UnitTests(unittest.TestCase):
         actual = self.sq.get_area()
         expected = 25
         self.assertEqual(actual, expected, 'Expected area of square to be 25')
+        
 
     def test_perimeter(self):
         actual = self.rect.get_perimeter()
@@ -110,6 +111,5 @@ class UnitTests(unittest.TestCase):
         expected = 0
         self.assertEqual(actual, expected, 'Expected `get_amount_inside` to return 0.')
         
-
 if __name__ == "__main__":
     unittest.main()
