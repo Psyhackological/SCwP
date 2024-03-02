@@ -26,9 +26,7 @@ class Category:
             self.total += amount
             return True
 
-        # IF INSUFFICIENT BALANCE
-        else:
-            return False
+        return False
 
     # SIMPLE GETTER
     def get_balance(self):
@@ -120,7 +118,8 @@ def create_spend_chart(categories):
         # SO I MULTIPLY BY 100 TO MAKE %
         # THEN FLOOR THIS
         # DIVIDE BY 10 TO CUT THE N%10 AND THEN TO ADD ONE 0
-        spent_percentages[category] = int(floor((spent / total_spent) * 100) / 10) * 10
+        spent_percentages[category] = int(
+            floor((spent / total_spent) * 100) / 10) * 10
 
     # NEEDED TO DETERMINE WHERE TO PUT BLANK LINES FROM ABOVE
     max_percentage = max(spent_percentages.values())
