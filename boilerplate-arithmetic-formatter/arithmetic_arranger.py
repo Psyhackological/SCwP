@@ -1,5 +1,4 @@
 def arithmetic_arranger(problems, display_outcome=False):
-
     # PRIORITIZED ERROR CHECKING
     if len(problems) > 5:
         return "Error: Too many problems."
@@ -15,14 +14,13 @@ def arithmetic_arranger(problems, display_outcome=False):
 
     # SCRAPPING THE DATA
     for problem in problems:
-
         # SIGN AND ERROR CHECKING
-        if '-' in problem:
-            first, second = problem.split(' - ')
-            sign = '-'
-        elif '+' in problem:
-            first, second = problem.split(' + ')
-            sign = '+'
+        if "-" in problem:
+            first, second = problem.split(" - ")
+            sign = "-"
+        elif "+" in problem:
+            first, second = problem.split(" + ")
+            sign = "+"
         else:
             return "Error: Operator must be '+' or '-'."
 
@@ -37,11 +35,11 @@ def arithmetic_arranger(problems, display_outcome=False):
         second_row.append(second)
         signs.append(sign)
 
-        line = (max(len(first), len(second)) + 2) * '-'
+        line = (max(len(first), len(second)) + 2) * "-"
         lines.append(line)
 
         if display_outcome:
-            if sign == '+':
+            if sign == "+":
                 outcome = int(first) + int(second)
             else:
                 outcome = int(first) - int(second)
@@ -49,27 +47,27 @@ def arithmetic_arranger(problems, display_outcome=False):
 
     # NEEDED VARIABLES TO CALCULATE AND APPEND FINAL STRING
     widths = [len(line) for line in lines]
-    mega_string = ''
+    mega_string = ""
 
     # FORMATTING THE DATA
     for first, width in zip(first_row, widths):
         # F-STRING ALIGNS TO THE RIGHT BY WIDTH - LEN(FIRST)
         mega_string += f"{first : >{width}}    "
     mega_string = mega_string[:-4]
-    mega_string += '\n'
+    mega_string += "\n"
 
     for second, sign, width in zip(second_row, signs, widths):
         # F-STRING ALIGNS TO THE RIGHT BY WIDTH - LEN(SECOND) - 1
         mega_string += f"{sign}{second: >{width-1}}    "
     mega_string = mega_string[:-4]
-    mega_string += '\n'
+    mega_string += "\n"
 
     for line in lines:
         mega_string += f"{line}    "
     mega_string = mega_string[:-4]
 
     if display_outcome:
-        mega_string += '\n'
+        mega_string += "\n"
         for outcome, width in zip(outcomes, widths):
             # F-STRING ALIGNS TO THE RIGHT BY WIDTH - LEN(OUTCOME)
             mega_string += f"{outcome : >{width}}    "

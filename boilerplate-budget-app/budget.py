@@ -2,7 +2,6 @@ from math import floor
 
 
 class Category:
-
     # CATEGORY CONSTRUCTOR
     def __init__(self, name):
         self.name = name
@@ -87,7 +86,6 @@ class Category:
 
 
 def create_spend_chart(categories):
-
     # HEADER
     mega_string = "Percentage spent by category\n"
 
@@ -97,16 +95,13 @@ def create_spend_chart(categories):
 
     # SINGLE OBJECT
     for category in categories:
-
         # SINGLE OBJECT NAME
         spent_by_category[category.name] = 0
 
         # SINGLE OBJECT LEDGER LIST WITH SINGLE DICTIONARY ENTRY
         for cat_ledge in category.ledger:
-
             # HELLO ARE YOU - ?
             if cat_ledge["amount"] < 0:
-
                 # COOL LET ME ADD YOU TO SPENT DICT AND ALSO TO TOTAL_SPENT
                 spent_by_category[category.name] += cat_ledge["amount"]
                 total_spent += cat_ledge["amount"]
@@ -118,8 +113,7 @@ def create_spend_chart(categories):
         # SO I MULTIPLY BY 100 TO MAKE %
         # THEN FLOOR THIS
         # DIVIDE BY 10 TO CUT THE N%10 AND THEN TO ADD ONE 0
-        spent_percentages[category] = int(
-            floor((spent / total_spent) * 100) / 10) * 10
+        spent_percentages[category] = int(floor((spent / total_spent) * 100) / 10) * 10
 
     # NEEDED TO DETERMINE WHERE TO PUT BLANK LINES FROM ABOVE
     max_percentage = max(spent_percentages.values())
@@ -135,13 +129,11 @@ def create_spend_chart(categories):
 
         # ELSE THERE IS SOME o TO PRINT
         else:
-
             # STANDARD STUFF
             mega_string += f"{row: >3}| "
 
             # LOOP FROM PERCENTAGE VALUES
             for percent in spent_percentages.values():
-
                 # IF PERCENT IS HIGHER THEN PRINT O AND 2 SPACES
                 if row <= percent:
                     mega_string += "o  "
@@ -151,7 +143,7 @@ def create_spend_chart(categories):
                     mega_string += "   "
 
             # BREAK THE LINE
-            mega_string += '\n'
+            mega_string += "\n"
 
     # DASHES ROW
     mega_string += f"    {'-' * (categories_num * 3 + 1)}\n"
@@ -164,12 +156,10 @@ def create_spend_chart(categories):
 
     # FROM 0 TO MAX_STR_LENGTH
     for i in range(max_str_length):
-
         # LEFT PADDING
-        mega_string += '     '
+        mega_string += "     "
 
         for name in names:
-
             # IF COUNTER IS HIGHER THAT MEANS THE STR IS OUT OF CHARACTERS
             # ALSO LOOP WILL RUN LEN(NAMES) TIMES
             if len(name) <= i:
@@ -180,7 +170,7 @@ def create_spend_chart(categories):
                 mega_string += f"{name[i]}  "
 
         # BREAK THE LINE
-        mega_string += '\n'
+        mega_string += "\n"
 
     # DELETE LAST \n
     mega_string = mega_string[:-1]

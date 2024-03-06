@@ -7,10 +7,8 @@ import random
 
 
 class Hat:
-
     # WAY TO HAVE KEY VALUE WITH ARGUMENT PASSING
     def __init__(self, **kwargs):
-
         # CONVERTING DICT TO LIST BY KEYS X THEIR VALUES
         self.contents = []
         for key, value in kwargs.items():
@@ -39,7 +37,6 @@ class Hat:
 
 
 def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
-
     # IT IS EASIER TO DETERMINE HOW MANY IS BAD THAN GOOD (EFFICIENCY)
     bad = 0
     for _ in range(num_experiments):

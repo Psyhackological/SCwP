@@ -30,19 +30,19 @@ class Rectangle:
 
     # RETURNS THE DIAGONAL OF THE OBJECT (RECTANGLE)
     def get_diagonal(self):
-        return ((self.width ** 2) + (self.height ** 2)) ** 0.5
+        return ((self.width**2) + (self.height**2)) ** 0.5
 
     # IF HIGHER THAN 50 (WIDTH OR HEIGHT) RETURNS AN ERROR MESSAGE, UNLESS IT PRINTS OUT THE SHAPE WITH '*' CHARACTER
     def get_picture(self):
         if (self.width > 50) or (self.height > 50):
             return "Too big for picture."
         else:
-            picture = ''
+            picture = ""
 
             for row in range(self.height):
                 for column in range(self.width):
-                    picture += '*'
-                picture += '\n'
+                    picture += "*"
+                picture += "\n"
 
             return picture
 
